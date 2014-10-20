@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @business.name %>
+</p>
+
+<p>
+  <strong>Phone:</strong>
+  <%= @business.phone %>
+</p>
+
+<p>
+  <strong>Website:</strong>
+  <%= @business.website %>
+</p>
+
+<p>
+  <strong>User's email:</strong>
+  <%= @business.user.email %>
+</p>
+
+
+
+<%= link_to 'Edit', edit_business_path(@business) %>
+
+
+<hr>
+<h2>Tell us your experience with this business:</h2>
+<%= render 'testimonials/form' %>
+
+<hr>
+<% if @testimonials.any? %>
+	<% @testimonials.each do |testimonial| %>
+		<hr>
+			<%= testimonial.star_rating %><br>
+			<p><%= testimonial.content %></p>
+			<p>Testimonial by: <%= testimonial.user.email %></p>
+		<hr>
+	<% end %>
+<% end %>
+
+
+
+
+
+
+
+
